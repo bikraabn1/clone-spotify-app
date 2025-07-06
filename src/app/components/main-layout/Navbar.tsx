@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className='flex-1'>
                     <form className='py-2 px-2 rounded-full flex gap-3 justify-between items-center flex-1 bg-[#1F1F1F] hover:bg-[#2A2A2A] cursor-pointer transition-all duration-200 ease-in-out hover:outline-1 hover:outline[#3A3A3A]'>
                         <FiSearch color='#B3B3B3' className='text-2xl' />
-                        <input type="text" className='outline-none w-full border-r-1 text-md border-[#B3B3B3]' />
+                        <input type="text" placeholder='What do you want to play?' className='outline-none w-full border-r-1 text-sm text-[#B3B3B3] border-[#B3B3B3]' />
                         <HiFolderOpen color='#B3B3B3' className='text-2xl' />
                     </form>
                 </div>
