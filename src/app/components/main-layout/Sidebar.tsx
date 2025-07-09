@@ -1,13 +1,23 @@
+'use client'
+
 import React from 'react';
 import type { MenuProps } from 'antd';
 import { ConfigProvider, Menu } from 'antd';
+import HeaderSidebarLabel from './sidebar-components/HeaderSidebarLabel';
+import CategoryNameLabel from './sidebar-components/CategoryNameLabel';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
+
 const items: MenuItem[] = [
     {
-        key: 'grp',
-        label: 'Your Library',
+        key: 'header',
+        label: <HeaderSidebarLabel/>,
+        type: 'group'
+    },
+    {
+        key: 'Category',
+        label: <CategoryNameLabel/>,
         type: 'group',
         children: [
             { key: '13', label: 'Option 13' },
