@@ -4,7 +4,8 @@ import React from 'react';
 import type { MenuProps } from 'antd';
 import { ConfigProvider, Menu } from 'antd';
 import HeaderSidebarLabel from './sidebar-components/HeaderSidebarLabel';
-import CategoryNameLabel from './sidebar-components/CategoryNameLabel';
+import CategoryNameLabel from './CategoryNameLabel';
+import PlaylistCard from './sidebar-components/PlaylistCard';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -18,11 +19,12 @@ const items: MenuItem[] = [
     {
         key: 'Category',
         label: <CategoryNameLabel/>,
-        type: 'group',
-        children: [
-            { key: '13', label: 'Option 13' },
-            { key: '14', label: 'Option 14' },
-        ],
+        type: 'group'
+    },
+    {
+        key: 'PlaylistCard1',
+        label: <PlaylistCard/>,
+        type: 'group'
     },
 ];
 

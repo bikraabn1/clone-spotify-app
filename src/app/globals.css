@@ -37,3 +37,7 @@ body {
 .custom-sidebar .ant-menu-item-selected{
   font-size: 0.8rem;
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
