@@ -1,9 +1,10 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 import Navbar from '../components/main-layout/Navbar'
 import Sidebar from '../components/main-layout/Sidebar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fetchWithAuth } from '../lib/api'
+import Loading from '../components/main-layout/Loading'
 
 interface MainLayoutProps {
     children: React.ReactNode
@@ -11,14 +12,15 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
     const queryClient = new QueryClient({
-        defaultOptions : {
-            queries : {
-                queryFn: async({queryKey}) => {
+        defaultOptions: {
+            queries: {
+                queryFn: async ({ queryKey }) => {
                     const url = queryKey.join('/')
                     return fetchWithAuth(process.env.NEXT_PUBLIC_API_URL + url)
-                }
-            }
-        }
+                },
+                // suspense: true
+            },
+        },
     })
     return (
         <div className='mx-2 min-h-screen'>
@@ -28,9 +30,11 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                     <Sidebar />
                 </div>
                 <div className='flex-1 bg-linear-to-b from-[#222222] via-[#121212] to-[#121212] overflow-hidden rounded-lg mb-2'>
-                    <QueryClientProvider client={queryClient}>
-                        {children}
-                    </QueryClientProvider>
+                    <Suspense fallback={<Loading />}>
+                        <QueryClientProvider client={queryClient}>
+                            {children}
+                        </QueryClientProvider>
+                    </Suspense>
                 </div>
             </div>
         </div>
