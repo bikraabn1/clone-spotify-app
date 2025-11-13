@@ -14,13 +14,18 @@ export const getToken = async () => {
 }
 
 export const fetchWithAuth = async (url: string) => {
-    const token = localStorage.getItem('token')
-
+    let token
+    
+    if (typeof window !== 'undefined' && window.localStorage) {
+        token = localStorage.getItem('token')
+    }
+    
     let res = await fetch(url, {
         headers: {
             'Authorization' : `Bearer ${token}`
         }
     })
+
 
     if(res.status === 401){
         try{

@@ -19,7 +19,7 @@ const Navbar = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedSearch(search)
-        }, 500)
+        }, 300)
         return () => clearTimeout(timer)
     }, [search])
 
@@ -40,8 +40,8 @@ const Navbar = () => {
                 <Image src="/images/logo/Spotify_Primary_Logo_RGB_White.png" alt="logo" width={30} height={30} className='h-fit my-auto ms-3' />
             </div>
 
-            <div className='col-span-4 col-start-5 flex gap-2 items-center justify-center'>
-                <div className='w-fit rounded-full p-2 bg-[#1F1F1F] hover:bg-[#2A2A2A] cursor-pointer transition-all duration-150 ease-in-out hover:scale-105'>
+            <div className='col-span-9 col-start-4 md:col-span-8 lg:col-span-4 lg:col-start-5 flex gap-2 items-center justify-center'>
+                <div className='w-fit rounded-full p-2 bg-[#1F1F1F] hover:bg-[#2A2A2A] cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 hidden md:block'>
                     <GoHome color='#B3B3B3' className='text-2xl' />
                 </div>
                 <div className='flex-1'>
@@ -61,7 +61,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className='col-span-1 col-start-12 flex justify-between items-center'>
+            <div className='md:col-span-2 lg-col-span-1 md:col-start-11 lg:col-start-12 md:flex md:justify-evenly lg:justify-between items-center hidden'>
                 <IoNotificationsOutline color='#B3B3B3' className='text-xl' />
                 <TbUsersGroup color='#B3B3B3' className='text-xl' />
                 <div className='p-2 rounded-full bg-orange-500 border-[7px] border-[#1F1F1F]'>

@@ -12,7 +12,7 @@ const Dashboard = () => {
         <HeaderCategoryDashboard text='Podcast' />
       </div>
 
-      <div className='max-h-[75vh] grid gap-10 overflow-scroll'>
+      <div className='max-h-[75vh] grid gap-8 overflow-scroll'>
         <PopularArtistList />
         <PopularRadioList />
       </div>

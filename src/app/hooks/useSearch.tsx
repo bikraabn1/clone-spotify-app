@@ -1,9 +1,9 @@
 'use client'
 import { useQuery } from "@tanstack/react-query";
-import { Welcome } from "../types/search-types";
 
-export function useSearch() {
-    return useQuery<Welcome>({
-        queryKey: ['v1', 'search?q=genre:"pop"&type=artist'],
+export function useSearch(query : string) {
+    return useQuery({
+        queryKey: ['v1', `search?q=${query}&type=track`],
+        enabled: !!query
     }).data
 }

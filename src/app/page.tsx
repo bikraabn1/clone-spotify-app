@@ -1,7 +1,7 @@
-import Dashboard from "./dashboard/page";
+import PageRouter from "./page-router";
 
 export default function Home() {
   return (
-    <Dashboard />
+    <PageRouter />
   );
 }
